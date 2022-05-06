@@ -12,9 +12,9 @@ class ItemNotFoundException : public std::exception {
 	}
 };
 
-template<class T>
-class T::iterator easyfind( T &container, int toFind) {
-	class T::iterator result = find(container.begin(), container.end(), toFind);
+template<typename T>
+typename T::iterator easyfind(T &container, int toFind) {
+	typename T::iterator result = find(container.begin(), container.end(), toFind);
 
 	if (result == container.end())
 		throw ItemNotFoundException();
