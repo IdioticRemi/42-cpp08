@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "easyfind.hpp"
 
 int	main( void )
 {

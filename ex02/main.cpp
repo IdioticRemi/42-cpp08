@@ -13,7 +13,7 @@ int main()
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	mstack.push(0);
+	mstack.push(-82);
 
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
@@ -27,7 +27,24 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
+	std::cout << "\033[0;32m======= TEST_COPY =======\033[0;0m" << std::endl;
 
-	std::stack<int> s(mstack);
+	MutantStack<int> s(mstack);
+
+	std::cout << "====== MEMORY_DIFF ======" << std::endl;
+
+	s.push(4242);
+
+	std::cout << "Top of origin: " << mstack.top() << std::endl;
+	std::cout << "Top of copy: " << s.top() << std::endl;
+
+	std::cout << "====== CONTENT_COPY =====" << std::endl;
+	MutantStack<int>::iterator itc = s.begin();
+	MutantStack<int>::iterator itce = s.end();
+	while (itc != itce)
+	{
+		std::cout << *itc << std::endl;
+		++itc;
+	}
 	return 0;
 }
